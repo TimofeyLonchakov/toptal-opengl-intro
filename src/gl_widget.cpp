@@ -203,9 +203,9 @@ void GlWidget::GetMatrixTransform(QMatrix4x4& matrixVertex,
 
     QMatrix4x4 matrixScaleScreen;
     double dimMin = static_cast<double>(qMin(width(), height()));
-    float scaleScreenVert = static_cast<float>(dimMin * 2.0 /
+    float scaleScreenVert = static_cast<float>(dimMin /
         static_cast<double>(height()));
-    float scaleScreenHorz = static_cast<float>(dimMin * 2.0 /
+    float scaleScreenHorz = static_cast<float>(dimMin /
         static_cast<double>(width()));
     matrixScaleScreen.scale(scaleScreenHorz, scaleScreenVert, 1.0f);
 
@@ -217,7 +217,7 @@ void GlWidget::GetMatrixTransform(QMatrix4x4& matrixVertex,
     QMatrix4x4 matrixScale;
     float radius = 1.0;
     model.GetRadius(radius);
-    float scale = static_cast<float>(m_scaleCoeff / radius / 2.0);
+    float scale = static_cast<float>(m_scaleCoeff / radius);
     matrixScale.scale(scale, scale, 0.5f / radius);
 
     QMatrix4x4 matrixTranslateScene;
